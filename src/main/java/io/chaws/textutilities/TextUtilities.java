@@ -20,7 +20,8 @@ public class TextUtilities implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		AutoConfig.register(TextUtilitiesConfig.class, Toml4jConfigSerializer::new);
-		SignEditHandler.initialize();
-		ClickThroughHandler.initialize();
+		// TODO: SignEditHandler and ClickThroughHandler code can be entirely refactored out to accommodate new sign interactions and only have NBT-change enabling
+		// SignEditHandler.initialize();
+		// ClickThroughHandler.initialize();
 	}
 }

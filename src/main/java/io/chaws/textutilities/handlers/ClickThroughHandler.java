@@ -87,7 +87,7 @@ public class ClickThroughHandler {
 
 		//HACK: Need to find a better way of detecting the side of the entity that was clicked
 		var clickedSide = player.getHorizontalFacing().getOpposite();
-		var clickedEntityPos = new BlockPos(entityHitResult.getPos());
+		var clickedEntityPos = new BlockPos(BlockPos.ofFloored(entityHitResult.getPos()));
 
 		return tryClickThrough(world, player, config, clickedEntityPos, clickedSide, hand)
 			? ActionResult.SUCCESS

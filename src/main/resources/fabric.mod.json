@@ -30,13 +30,13 @@
 		"textutilities.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14",
+		"fabricloader": ">=0.14.7",
 		"fabric": "*",
-		"minecraft": "~1.19",
+		"minecraft": ">=1.20",
 		"java": ">=17"
 	},
 	"suggests": {
-		"modmenu": ">=5"
+		"modmenu": ">=7.0.1"
 	},
 	"custom": {
 		"modmanager": {

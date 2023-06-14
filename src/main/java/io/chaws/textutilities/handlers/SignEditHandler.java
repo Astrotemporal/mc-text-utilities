@@ -32,6 +32,7 @@ public class SignEditHandler {
 			return ActionResult.PASS;
 		}
 
+		// TODO: Remove this since editing signs is now vanilla
 		if (!TextUtilities.getConfig().signEditingEnabled) {
 			return ActionResult.PASS;
 		}
@@ -46,22 +47,17 @@ public class SignEditHandler {
 		// Dyes and Ink Sacs can be applied to signs directly when they are in the main hand
 		if (isHolding(player, Hand.MAIN_HAND, Items.INK_SAC) ||
 			isHolding(player, Hand.MAIN_HAND, Items.GLOW_INK_SAC) ||
+			isHolding(player, Hand.MAIN_HAND, Items.HONEYCOMB) ||
 			isHoldingDye(player, Hand.MAIN_HAND)
 		) {
 			return ActionResult.PASS;
 		}
 
-		if (!isHoldingSign(player)) {
+		if (signBlock.isWaxed()) {
 			return ActionResult.PASS;
 		}
 
-		signBlock.setEditable(true);
-
-		if (signBlock.isEditable()) {
-			player.openEditSignScreen(signBlock);
-		} else {
-			player.sendMessage(Text.literal("Sign is not editable"), true);
-		}
+		player.openEditSignScreen(signBlock, signBlock.isPlayerFacingFront(player));
 
 		return ActionResult.SUCCESS;
 	}
